@@ -1,0 +1,1 @@
+This project uses a calculator implemented in QT6.8.0
