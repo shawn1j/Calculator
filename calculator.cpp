@@ -52,6 +52,11 @@ void Calculator::onToolButtonClicked(QToolButton *button, Mode mode)
 
             this->last_number.clear();
         }
+        else
+        {
+            // 更新显示的表达式
+            this->expression = this->expression + this->last_number + button->text();
+        }
         // 运算符入栈
         this->operator_stack.push(mode);
 
