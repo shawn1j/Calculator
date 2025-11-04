@@ -32,7 +32,7 @@ public:
         RightParentheses,   // 右括号
         Reciprocal,         // 倒数
         Factorial,          // 阶乘
-        Log10,                // 自然对数
+        Log10,              // 自然对数
         Log2,               // 以2为底的对数
         Pi                  // 圆周率
 

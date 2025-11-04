@@ -1,0 +1,20 @@
+[
+{
+  "directory": "E:/qt_project/calculator/project_build",
+  "command": "\"D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -IE:\\qt_project\\calculator\\project_build\\calculator_autogen\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtCore -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\mkspecs\\win32-msvc -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtWidgets -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtGui -external:ID:\\VulkanSDK\\1.4.313.1\\Include -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8 /FoCMakeFiles\\calculator.dir\\calculator_autogen\\mocs_compilation.cpp.obj /FdCMakeFiles\\calculator.dir\\ /FS -c E:\\qt_project\\calculator\\project_build\\calculator_autogen\\mocs_compilation.cpp",
+  "file": "E:\\qt_project\\calculator\\project_build\\calculator_autogen\\mocs_compilation.cpp",
+  "output": "CMakeFiles\\calculator.dir\\calculator_autogen\\mocs_compilation.cpp.obj"
+},
+{
+  "directory": "E:/qt_project/calculator/project_build",
+  "command": "\"D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -IE:\\qt_project\\calculator\\project_build\\calculator_autogen\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtCore -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\mkspecs\\win32-msvc -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtWidgets -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtGui -external:ID:\\VulkanSDK\\1.4.313.1\\Include -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8 /FoCMakeFiles\\calculator.dir\\main.cpp.obj /FdCMakeFiles\\calculator.dir\\ /FS -c E:\\qt_project\\calculator\\main.cpp",
+  "file": "E:\\qt_project\\calculator\\main.cpp",
+  "output": "CMakeFiles\\calculator.dir\\main.cpp.obj"
+},
+{
+  "directory": "E:/qt_project/calculator/project_build",
+  "command": "\"D:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe\"  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -IE:\\qt_project\\calculator\\project_build\\calculator_autogen\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtCore -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include -external:ID:\\Qt\\6.8.3\\msvc2022_64\\mkspecs\\win32-msvc -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtWidgets -external:ID:\\Qt\\6.8.3\\msvc2022_64\\include\\QtGui -external:ID:\\VulkanSDK\\1.4.313.1\\Include -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc -DQT_QML_DEBUG -DQT_DECLARATIVE_DEBUG /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd -Zc:__cplusplus -permissive- -utf-8 /FoCMakeFiles\\calculator.dir\\calculator.cpp.obj /FdCMakeFiles\\calculator.dir\\ /FS -c E:\\qt_project\\calculator\\calculator.cpp",
+  "file": "E:\\qt_project\\calculator\\calculator.cpp",
+  "output": "CMakeFiles\\calculator.dir\\calculator.cpp.obj"
+}
+]

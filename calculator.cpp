@@ -5,10 +5,7 @@
 #include <QGridLayout>
 #include <qmath.h>
 
-Calculator::Calculator(QWidget *parent)
-    : QWidget(parent),
-      display(new QLineEdit(this)),
-      clear_flag(false)
+Calculator::Calculator(QWidget *parent) : QWidget(parent), display(new QLineEdit(this)), clear_flag(false)
 
 {
     this->setMinimumSize(400, 620);
@@ -19,14 +16,12 @@ Calculator::~Calculator() {}
 
 void Calculator::onToolButtonClicked(QToolButton *button, Mode mode)
 {
-    if (this->clear_flag)
-    {
+    if (this->clear_flag) {
         this->expression.clear(); // 清除上一次计算结果
         clear();
     }
 
-    switch (mode)
-    {
+    switch (mode) {
     case Mode::Number:
         // 开头禁止连续输入多个0
         if (button->text() == "0" && this->last_number == "0")
@@ -44,28 +39,22 @@ void Calculator::onToolButtonClicked(QToolButton *button, Mode mode)
     case Mode::Multiplication:
     case Mode::Division:
         // 操作数入栈
-        if (!this->last_number.isEmpty())
-        {
+        if (!this->last_number.isEmpty()) {
             this->number_stack.push(this->last_number.toDouble());
             // 更新显示的表达式
             this->expression = this->expression + this->last_number + button->text();
 
             this->last_number.clear();
-        }
-        else
-        {
+        } else {
             // 更新显示的表达式
             this->expression = this->expression + this->last_number + button->text();
         }
         // 运算符入栈
         this->operator_stack.push(mode);
 
-        try
-        {
+        try {
             calculateMedian();
-        }
-        catch (QString e)
-        {
+        } catch (QString e) {
             this->expression = e;
             this->clear_flag = true;
             goto UPDATE_DISPLAY;
@@ -78,18 +67,17 @@ void Calculator::onToolButtonClicked(QToolButton *button, Mode mode)
         break;
 
     case Mode::RightParentheses:
+        if (this->expression.isEmpty())
+           return;
         // 操作数入栈
         if (!this->last_number.isEmpty())
             this->number_stack.push(this->last_number.toDouble());
 
         // 运算符入栈
         this->operator_stack.push(mode);
-        try
-        {
+        try {
             calculateMedian(); // 计算括号内的表达式
-        }
-        catch (QString e)
-        {
+        } catch (QString e) {
             this->expression = e;
             this->clear_flag = true;
             goto UPDATE_DISPLAY;
@@ -175,19 +163,15 @@ void Calculator::onToolButtonClicked(QToolButton *button, Mode mode)
         if (this->number_stack.isEmpty())
             goto UPDATE_DISPLAY;
 
-        if (!this->last_number.isEmpty())
-        {
+        if (!this->last_number.isEmpty()) {
             // 操作数入栈
             this->number_stack.push(this->last_number.toDouble());
         }
         // 计算结果
         double result;
-        try
-        {
+        try {
             result = calculateResult();
-        }
-        catch (QString e)
-        {
+        } catch (QString e) {
             this->expression = e;
             this->clear_flag = true;
             goto UPDATE_DISPLAY;
@@ -278,16 +262,16 @@ QToolButton *Calculator::createToolButton(const QString &text, Mode mode)
     button->setMinimumSize(100, 60);
     button->setToolButtonStyle(Qt::ToolButtonTextOnly);
 
-    connect(button, &QToolButton::clicked, this, [=]()
-            { onToolButtonClicked(button, mode); });
+    connect(button, &QToolButton::clicked, this, [=]() {
+        onToolButtonClicked(button, mode);
+    });
     return button;
 }
 
 double Calculator::calculate(double left, double right)
 {
     double result;
-    switch (this->operator_stack.top())
-    {
+    switch (this->operator_stack.top()) {
     case Mode::Addition:
         qDebug() << QString::number(left) + "+" + QString::number(right);
         result = left + right;
@@ -314,8 +298,7 @@ double Calculator::calculateResult()
 {
 
     double rightOperand, leftOperand, result;
-    while (!this->operator_stack.isEmpty())
-    {
+    while (!this->operator_stack.isEmpty()) {
         if (this->operator_stack.size() >= 1 && this->number_stack.size() <= 1)
             throw QString("calculation error");
 
@@ -338,8 +321,7 @@ double Calculator::calculateResult()
 void Calculator::calculateMedian()
 {
     double rightOperand, leftOperand, result;
-    while (!this->operator_stack.isEmpty() && maybecalculate())
-    {
+    while (!this->operator_stack.isEmpty() && maybecalculate()) {
 
         if (this->operator_stack.size() >= 1 && this->number_stack.size() <= 1)
             throw QString("calculation error");
@@ -359,8 +341,7 @@ void Calculator::calculateMedian()
         this->operator_stack.push(lastOperator);
     }
 
-    if (this->operator_stack.top() == Mode::RightParentheses)
-    {
+    if (this->operator_stack.top() == Mode::RightParentheses) {
         qDebug() << "remove ) and (";
         this->operator_stack.pop();
         this->operator_stack.pop();
@@ -370,8 +351,7 @@ void Calculator::calculateMedian()
 void printmaybecalculate(Calculator::Mode lastOperator, Calculator::Mode calculateOperator)
 {
     QString str = "lastOperator: ";
-    switch (lastOperator)
-    {
+    switch (lastOperator) {
     case Calculator::Mode::Addition:
         str += "+    ";
         break;
@@ -393,8 +373,7 @@ void printmaybecalculate(Calculator::Mode lastOperator, Calculator::Mode calcula
     }
     str += "calculateOperator: ";
 
-    switch (calculateOperator)
-    {
+    switch (calculateOperator) {
     case Calculator::Mode::Addition:
         str += "+    ";
         break;
@@ -419,8 +398,7 @@ void printmaybecalculate(Calculator::Mode lastOperator, Calculator::Mode calcula
 
 bool Calculator::maybecalculate()
 {
-    if (this->operator_stack.size() < 2)
-    {
+    if (this->operator_stack.size() < 2) {
         qDebug() << "maybecalculate: false";
         return false;
     }
@@ -433,18 +411,14 @@ bool Calculator::maybecalculate()
 
     printmaybecalculate(lastOperator, calculateOperator);
 
-    if ((lastOperator == Mode::Multiplication || lastOperator == Mode::Division) && (calculateOperator == Mode::Addition || calculateOperator == Mode::Subtraction))
-    {
+    if ((lastOperator == Mode::Multiplication || lastOperator == Mode::Division)
+        && (calculateOperator == Mode::Addition || calculateOperator == Mode::Subtraction)) {
         qDebug() << "maybecalculate: false";
         return false;
-    }
-    else if (calculateOperator == Mode::LeftParentheses)
-    {
+    } else if (calculateOperator == Mode::LeftParentheses) {
         qDebug() << "maybecalculate: false ----- is ( operator";
         return false;
-    }
-    else if (lastOperator == Mode::RightParentheses)
-    {
+    } else if (lastOperator == Mode::RightParentheses) {
         qDebug() << "maybecalculate: true ----- is ) operator";
         return true;
     }
